@@ -1,14 +1,13 @@
-# (b) To write a python program for tower of Hanoi Scenario
-def tower_of_hanoi(disks, source, auxiliary, target):  
-    if(disks == 1):  
-        print('Move disk 1 from rod {} to rod {}.'.format(source, target))  
-        return  
-    # function call itself  
-    tower_of_hanoi(disks - 1, source, target, auxiliary)  
-    print('Move disk {} from rod {} to rod {}.'.format(disks, source, target))  
-    tower_of_hanoi(disks - 1, auxiliary, source, target)  
-  
-  
-disks = int(input('Enter the number of disks: '))  
-# We are referring source as A, auxiliary as B, and target as C  
-tower_of_hanoi(disks, 'A', 'B', 'C')
+#To write a python program for tower of Hanoi Scenario
+def towerofhanoi(n,source,intermediate, destination):
+    if n == 1:
+        print("Move disk 1 from rod", source, "to rod", intermediate)
+        return
+    towerofhanoi(n-1, source, destination,intermediate)
+    print("Move disk", n, "from rod", source, "to rod", intermediate)
+    towerofhanoi(n-1, destination, intermediate, source)
+
+n=int(input("Enter number of disks: "))
+#A, C, B are name of rods
+towerofhanoi(n, 'A', 'C', 'B')
+
